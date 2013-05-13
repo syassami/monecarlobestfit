@@ -1,0 +1,34 @@
+By: Shayan Yassami
+
+Random sampling was performed 5x
+
+1-(1-(1-.30)^2)^5 should result in 0.9654974749 % Chance we get good results. (Theoretically)
+
+usage ./prog4 <input>
+
+Notes:
+The most difficult part of this project was to find the actual "good" values after I had completed the median portion of the algortihim and had sorted the array. I had no way to match up my sorted results with my original vectors. To solve this problem, I made a struct and threw the original indexs in with the distance calculated, then later matched them up to find the "best indexes". 
+
+I also had a step that would continue; the distance selection if the same points that I were using as a reference to draw the line came up again; (which results in a distance of zero); the problem with this step is that the function would throw off my indexes later on allowing "bad" data to fit into my least squares formula.
+
+Psedo;
+
+For data given and number of times
+	select two random points
+	generate line formula based off this
+		for rest of the points
+			calculate distance formula
+			add to 
+		end
+	sort distance results
+	find median
+	if median is lowest
+		save median
+		save best results
+end
+
+select best results that are >= median and put them into a new vector to be passed to the least squares fitting.
+
+What we did there was "comb out" the bad results.
+
+
